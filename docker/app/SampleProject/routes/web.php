@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ルート設定
+
 Route::get('/', function () {
-    return view('welcome');
+
+    return view('StockLead_top');
 });
