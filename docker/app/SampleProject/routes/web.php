@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// ルート設定
-
 Route::get('/', function () {
-
-    return view('StockLead_top');
+    return view('welcome');
 });
+
+// Route::get('/aタグのhrefの名前を書き込む', function () {
+//     return view('○○○.blade.php の〇〇を書き込む');
+// });
+//ルーティングはコントローラーも呼び出してページ遷移することができる。
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

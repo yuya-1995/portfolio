@@ -525,7 +525,7 @@
     {{-- フッター部分 --}}
     <footer id="footer" class="fixed-bottom d-flex align-items-center justify-content-center" style="height:50px; background-color:#718096; ">
         <a class="m-2" href="#">Qumeruについて</a>
-        <a class="m-2" href="#">企業概要</a>
+        <a class="m-2" href="test">企業概要</a>
         <a class="m-2" href="#">利用規約</a>
         <a class="m-2" href="#">お問合せ</a>
     </footer>
