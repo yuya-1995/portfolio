@@ -15,6 +15,7 @@ class ShopController extends Controller
     // $shop = Shop::find(2)->area->name;
     // dd($area_tokyo, $shop);
 
+    //店舗登録
     public function create(Request $request)  
 
 {  
@@ -31,16 +32,51 @@ class ShopController extends Controller
 
     return redirect("home");  
 }
-//DBから店舗情報を全て取得
-public function index(Request $shop_list)
+//店舗一覧（DBから店舗情報を全て取得）
+public function index()
     {
         $shop_list = shop::all();
-        // $shop_list = shop::where('users_id', Auth::id())->get();
+        // dd($shop_list);データが入っている
+        // $shop_list = hop::where('users_id', Auth::id())->get();
         // Log::debug($shop_list);
-        return view("list_shop", ['list_shop' => $shop_list ]);
+        return view("list_shop", compact('shop_list'));
 
     }
 
+//店舗編集
+public function edit_index($shop_id)  
+{  
+    // dd($shop_id);
+    $list = shop::where('shop_id', $shop_id)->first();
+    return view("edit_shop", compact('list'));
+    // return view("edit_shop",compact('list'));
 }
 
+public function edit_list(Request $request , $shop_id)  
+{  
+    $shop_list = shop::where('shop_id', $shop_id)->first();
+    $shop_list->update([  
+        "shop_name" => $request->shop_name,  
+        "shop_address" => $request->shop_address,
+        "at1st" => $request->at1st,
+        "at2nd" => $request->at2nd,
+        "at3rd" => $request->at3rd,
+        "loss_alert" => $request->loss_alert,
 
+    ]);  
+   
+    return redirect("list_shop");
+    // return view("edit_shop",compact('list')); 
+}
+
+//店舗削除
+public function delete_list($shop_id)  
+{  
+    shop::where('shop_id', $shop_id)->delete();
+    // dd($delete_list);データ確認
+    
+    return redirect("list_shop");
+ 
+}
+
+}

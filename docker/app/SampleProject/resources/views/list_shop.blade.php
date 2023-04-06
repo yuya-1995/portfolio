@@ -6,9 +6,8 @@
         <p class="fs-3 text-center mt-4">店舗一覧</p>
 
         <div class="row align-items-center mt-5">
-
             {{-- 店舗情報カード(始) --}}
-            @foreach ($list_shop as $list)
+            @foreach ($shop_list as $list)
             <div class="col-4">
                 <div class="card border-dark mb-3" style="max-width: 18rem;">
                     <div class="card-header">{{ $list->shop_name }}</div>
@@ -16,16 +15,16 @@
                         <p class="card-text">{{ $list->shop_address }}</p>
 
                         <div class="list_item text-center">
-                            <a href="list_item"><button class="btn btn-outline-secondary mt-3" type="button"
+                            <a href="{{route('list_item', [$list->shop_id])}}"><button class="btn btn-outline-secondary mt-3" type="button"
                                     id="list_item">在庫</button></a>
                         </div>
                         @if (Auth::user()->role == 1)
                             <div class="edit_shop text-center">
-                                <a href="edit_shop"><button class="btn btn-outline-secondary mt-3" type="button"
+                                <a href="{{route('edit_shop', [$list->shop_id])}}"><button class="btn btn-outline-secondary mt-3" type="button"
                                         id="{{ $list->shop_id }}<">店舗編集</button></a>
                             </div>
                             <div class="delete_shop text-center">
-                                <a href="delete_shop"><button class="btn btn-outline-secondary mt-3" type="button"
+                                <a href="{{route('delete', [$list->shop_id])}}"><button class="btn btn-outline-secondary mt-3" type="button"
                                         id="{{ $list->shop_id }}<">店舗削除</button></a>
                             </div>
                         @endif

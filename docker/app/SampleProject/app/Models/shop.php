@@ -14,6 +14,7 @@ class shop extends Model
         // return $this->belongsTo('App\Models\User');
     }
 
+    protected $primaryKey = 'shop_id';
 
 
     /**
@@ -22,6 +23,7 @@ class shop extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        
         'shop_name',
         'shop_address',
         'at1st',
@@ -30,4 +32,5 @@ class shop extends Model
         'loss_alert',
         'users_id',
     ];
+
 }

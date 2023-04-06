@@ -25,28 +25,34 @@ Route::get('/', function () {
 // });
 //ルーティングはコントローラーも呼び出してページ遷移することができる。
 
+//{{route('delete')}}は→name('○○○')
+
 Auth::routes();
 
 //ログイン後の画面（home）
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//店舗一覧
+Route::get('/list_shop',[App\Http\Controllers\ShopController::class, 'index'])->name('list_shop');//【店舗一覧】クリック時
 
 //店舗登録
 Route::get('add_shop', function () {
     return view('add_shop');
 });
 //店舗登録ボタン（処理後はhomeへ）
-Route::post('/add_shop', [App\Http\Controllers\ShopController::class, 'create']);
+Route::post('/add_shop', [App\Http\Controllers\ShopController::class, 'create']); //【店舗登録】クリック時
 
 //店舗編集
-Route::get('edit_shop', function () {
-    return view('edit_shop');
-});
+Route::get('/edit_shop/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_index'])->name('edit_shop'); //【店舗編集】クリック時
+// Route::get('/edit/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_list'])->name('edit'); 
+Route::post('/edit/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_list'])->name('edit'); //【編集完了】クリック時
 
-//店舗一覧
-// Route::get('list_shop', function () {
-//     return view('list_shop');
-// });
-Route::resource('list_shop','App\Http\Controllers\shopController');
+//店舗削除
+Route::get('/delete/{shop_id}', [App\Http\Controllers\ShopController::class, 'delete_list'])->name('delete'); //【削除】クリック時
+
+
+//在庫一覧
+Route::get('/list_item/{shop_id}', [App\Http\Controllers\ItemController::class, 'index'])->name('list_item'); //【在庫】クリック時
 
 
 
