@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\shop;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;  // Log::debug($request);　何が入っているか確認できる
 use Illuminate\Support\Facades\Auth; //現在ログインしているアカウントIDの取得
@@ -28,7 +29,7 @@ class ShopController extends Controller
       "at3rd" => $request->at3rd,
       "loss_alert" => $request->loss_alert,
       "users_id" => Auth::id(), //現在ログインしているアカウントIDの取得
-    ]);  
+    ]); 
 
     return redirect("home");  
 }
@@ -48,6 +49,7 @@ public function edit_index($shop_id)
 {  
     // dd($shop_id);
     $list = shop::where('shop_id', $shop_id)->first();
+    
     return view("edit_shop", compact('list'));
     // return view("edit_shop",compact('list'));
 }
@@ -77,6 +79,25 @@ public function delete_list($shop_id)
     
     return redirect("list_shop");
  
+}
+
+//在庫一覧へ遷移する時に倉庫室等の情報を飛ばす
+public function item_shop_index($shop_id)  
+{  
+    // dd($shop_id);データ確認
+    $list = shop::where('shop_id', $shop_id)->first();
+    //リレーション先のデータの取得
+    $items = Item::where('shop_id', $shop_id)->get();
+    return view("list_item", compact('list','items'));
+}
+
+//在庫登録へ遷移する時にユーザー・場所の情報を飛ばす
+public function add_item_index($shop_id)  
+{  
+    // dd($shop_id);
+    $list = shop::where('shop_id', $shop_id)->first();
+    return view("add_item", compact('list'));
+    // return view("edit_shop",compact('list'));
 }
 
 }

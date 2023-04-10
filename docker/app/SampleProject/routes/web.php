@@ -44,15 +44,34 @@ Route::post('/add_shop', [App\Http\Controllers\ShopController::class, 'create'])
 
 //店舗編集
 Route::get('/edit_shop/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_index'])->name('edit_shop'); //【店舗編集】クリック時
-// Route::get('/edit/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_list'])->name('edit'); 
+//編集実行
 Route::post('/edit/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_list'])->name('edit'); //【編集完了】クリック時
 
 //店舗削除
 Route::get('/delete/{shop_id}', [App\Http\Controllers\ShopController::class, 'delete_list'])->name('delete'); //【削除】クリック時
 
-
 //在庫一覧
-Route::get('/list_item/{shop_id}', [App\Http\Controllers\ItemController::class, 'index'])->name('list_item'); //【在庫】クリック時
+Route::get('/list_item/{shop_id}', [App\Http\Controllers\ShopController::class, 'item_shop_index'])->name('list_item'); //【在庫】クリック時
 
 
+//商品登録
+// Route::get('/add_item', [App\Http\Controllers\ItemController::class, 'add_item'])->name('add_item'); //【商品登録】クリック時
+Route::get('/add_item/{shop_id}', [App\Http\Controllers\ShopController::class, 'add_item_index'])->name('add_item'); //　【商品登録】クリック時
 
+//商品登録ボタン（処理後はlist_itemへ）
+Route::post('/add_item', [App\Http\Controllers\ItemController::class, 'create']); //【登録】クリック時
+
+//商品削除ボタン（処理後はlist_itemへ）
+Route::get('/delete_item/{item_id}', [App\Http\Controllers\ItemController::class, 'delete_item'])->name('delete_item'); //【削除】クリック時
+
+//商品編集（値を渡す）
+Route::get('/edit_item/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item_index'])->name('edit_item'); //【削除】クリック時
+
+//編集実行
+Route::post('/edit_/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item'])->name('edit_'); //【削除】クリック時
+
+//在庫移動
+Route::get('/move_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move_item'])->name('move_item');
+
+//移動実行（処理後はlist_itemへ）
+Route::post('/move/{item_id}', [App\Http\Controllers\ItemController::class, 'move'])->name('move');

@@ -14,6 +14,11 @@ class shop extends Model
         // return $this->belongsTo('App\Models\User');
     }
 
+    public function Item()
+    {
+        return $this->hasOne(Item::class);
+    }
+
     protected $primaryKey = 'shop_id';
 
 
