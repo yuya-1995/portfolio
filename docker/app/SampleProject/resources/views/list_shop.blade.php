@@ -8,7 +8,7 @@
         <div class="row align-items-center mt-5">
             {{-- 店舗情報カード(始) --}}
             @foreach ($shop_list as $list)
-            <div class="col-4">
+            <div class="col-4 d-flex align-items-center justify-content-center">
                 <div class="card border-dark mb-3" style="max-width: 18rem;">
                     <div class="card-header">{{ $list->shop_name }}</div>
                     <div class="card-body text-dark">

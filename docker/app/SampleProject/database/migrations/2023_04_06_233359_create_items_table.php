@@ -25,7 +25,7 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('shop_id');
             $table->timestamps();
             
-            $table->foreign('shop_id')->references('shop_id')->on('shops');
+            $table->foreign('shop_id')->references('shop_id')->on('shops')->onDelete('cascade');
         });
     }
 
@@ -37,7 +37,5 @@ class CreateItemsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('items');
-        Schema::dropIfExists('shops');
-        
     }
 }
