@@ -75,3 +75,9 @@ Route::get('/move_item/{item_id}', [App\Http\Controllers\ItemController::class, 
 
 //移動実行（処理後はlist_itemへ）
 Route::post('/move/{item_id}', [App\Http\Controllers\ItemController::class, 'move'])->name('move');
+
+//スタイリッシュ案
+Route::get('/move1_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move1_item'])->name('move1_item');
+Route::get('/move2_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move2_item'])->name('move2_item');
+Route::get('/move3_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move3_item'])->name('move3_item');
+

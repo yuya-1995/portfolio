@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\shop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -87,4 +88,38 @@ class ItemController extends Controller
 
         return redirect("list_item/{$request->shop_id}");
     }
+    
+    //下記スタイリッシュ案
+
+    public function move1_item($item_id)
+    {
+        $items = Item::where('item_id', $item_id)->first();
+        $items->update([
+            'stock_at' => 1,
+
+        ]);
+
+        return redirect("list_item/{$items->shop_id}");
+    }
+
+    public function move2_item($item_id)
+    {
+        $items = Item::where('item_id', $item_id)->first();
+        $items->update([
+            'stock_at' => 2,
+        ]);
+
+        return redirect("list_item/{$items->shop_id}");
+    }
+
+    public function move3_item($item_id)
+    {
+        $items = Item::where('item_id', $item_id)->first();
+        $items->update([
+            'stock_at' => 3,
+        ]);
+
+        return redirect("list_item/{$items->shop_id}");
+    }
+    
 }
