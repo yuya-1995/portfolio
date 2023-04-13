@@ -83,7 +83,7 @@
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('delete_item', [$item->item_id]) }}"><button
-                                                    class="btn btn-outline-secondary" type="button"
+                                                    class="btn btn-outline-secondary" type="button" onClick="delete_alert(event);return false;"
                                                     id="">削除</button></a>
                                         </td>
                                     @endif
@@ -155,7 +155,7 @@
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('delete_item', [$item->item_id]) }}"><button
-                                                    class="btn btn-outline-secondary" type="button"
+                                                    class="btn btn-outline-secondary" type="button" onClick="delete_alert(event);return false;"
                                                     id="">削除</button></a>
                                         </td>
                                     @endif
@@ -227,7 +227,7 @@
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('delete_item', [$item->item_id]) }}"><button
-                                                    class="btn btn-outline-secondary" type="button"
+                                                    class="btn btn-outline-secondary" type="button" onClick="delete_alert(event);return false;"
                                                     id="">削除</button></a>
                                         </td>
                                     @endif

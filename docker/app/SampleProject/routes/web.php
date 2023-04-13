@@ -81,3 +81,5 @@ Route::get('/move1_item/{item_id}', [App\Http\Controllers\ItemController::class,
 Route::get('/move2_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move2_item'])->name('move2_item');
 Route::get('/move3_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move3_item'])->name('move3_item');
 
+//チャット関連
+Route::post('/post', [App\Http\Controllers\PostController::class, 'post']);

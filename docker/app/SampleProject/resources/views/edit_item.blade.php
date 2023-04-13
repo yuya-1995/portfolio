@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<?php use Carbon\Carbon; ?>
 
 @section('content')
     <div class="container">

@@ -21,11 +21,11 @@
                         @if (Auth::user()->role == 1)
                             <div class="edit_shop text-center">
                                 <a href="{{route('edit_shop', [$list->shop_id])}}"><button class="btn btn-outline-secondary mt-3" type="button"
-                                        id="{{ $list->shop_id }}<">店舗編集</button></a>
+                                        id="{{ $list->shop_id }}">店舗編集</button></a>
                             </div>
                             <div class="delete_shop text-center">
                                 <a href="{{route('delete', [$list->shop_id])}}"><button class="btn btn-outline-secondary mt-3" type="button"
-                                        id="{{ $list->shop_id }}<">店舗削除</button></a>
+                                        id="{{ $list->shop_id }}" onClick="delete_alert(event);return false;">店舗削除</button></a>
                             </div>
                         @endif
                     </div>
