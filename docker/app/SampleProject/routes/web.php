@@ -65,10 +65,10 @@ Route::post('/add_item', [App\Http\Controllers\ItemController::class, 'create'])
 Route::get('/delete_item/{item_id}', [App\Http\Controllers\ItemController::class, 'delete_item'])->name('delete_item'); //【削除】クリック時
 
 //商品編集（値を渡す）
-Route::get('/edit_item/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item_index'])->name('edit_item'); //【削除】クリック時
+Route::get('/edit_item/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item_index'])->name('edit_item'); //【編集】クリック時
 
 //編集実行
-Route::post('/edit_/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item'])->name('edit_'); //【削除】クリック時
+Route::post('/edit_/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item'])->name('edit_'); //【編集完了】クリック時
 
 //在庫移動
 Route::get('/move_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move_item'])->name('move_item');
@@ -81,5 +81,41 @@ Route::get('/move1_item/{item_id}', [App\Http\Controllers\ItemController::class,
 Route::get('/move2_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move2_item'])->name('move2_item');
 Route::get('/move3_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move3_item'])->name('move3_item');
 
-//チャット関連
+//memo関連
 Route::post('/post', [App\Http\Controllers\PostController::class, 'post']);
+Route::get('/delete_memo/{id}', [App\Http\Controllers\PostController::class, 'delete'])->name('delete_memo');
+
+//ルーム作成画面へ
+Route::get('add_room', function () {
+    return view('add_room');
+});
+//ルーム作成
+Route::post('/add_room', [App\Http\Controllers\RoomController::class, 'create']); //【作成】クリック時
+
+//ルーム一覧
+Route::get('/list_room',[App\Http\Controllers\RoomController::class, 'index'])->name('list_room');//【ルーム一覧】クリック時
+
+//ルーム参加
+Route::get('/room/{id}', [App\Http\Controllers\ChatController::class, 'chat_index'])->name('room'); //【参加】クリック時
+
+//チャット送信（処理後はroomへ）
+Route::post('/chat_post/{id}', [App\Http\Controllers\ChatController::class, 'chat_post'])->name('chat_post'); //【参加】クリック時
+
+//ルーム削除（処理後はroomへ）
+Route::get('/delete_room/{id}', [App\Http\Controllers\RoomController::class, 'delete_room'])->name('delete_room'); //【削除】クリック時
+
+// ルーム編集画面へ
+Route::get('/edit_room/{id}', [App\Http\Controllers\RoomController::class, 'edit_room_index'])->name('edit_room'); //【削除】クリック時
+
+//ルーム編集実行
+Route::post('/edit__/{id}', [App\Http\Controllers\RoomController::class, 'edit_room'])->name('edit__'); //【編集完了】クリック時
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,12 @@ class PostController extends Controller
             'user_id' => $request->user_id,
         ]);
 
+        return redirect('home');
+    }
+
+    public function delete($id)
+    {
+        Post::where('id', $id)->delete();
 
         return redirect('home');
     }
