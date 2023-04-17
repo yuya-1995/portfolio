@@ -39,13 +39,19 @@ Route::get('/list_shop',[App\Http\Controllers\ShopController::class, 'index'])->
 Route::get('add_shop', function () {
     return view('add_shop');
 });
-//店舗登録ボタン（処理後はhomeへ）
-Route::post('/add_shop', [App\Http\Controllers\ShopController::class, 'create']); //【店舗登録】クリック時
+//店舗登録ボタン（処理後はlist_shopへ）
+// Route::post('/add_shop', [App\Http\Controllers\ShopController::class, 'create']); //【店舗登録】クリック時
+Route::post('/add_shop', [App\Http\Controllers\ShopController::class, 'val_create'])->name('add_shop'); //バリデーション付き
+
 
 //店舗編集
-Route::get('/edit_shop/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_index'])->name('edit_shop'); //【店舗編集】クリック時
+// Route::get('/edit_shop/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_index'])->name('edit_shop'); //【店舗編集】クリック時
+Route::get('/edit_shop/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_index'])->name('edit_shop'); //バリデーション付き
+
+
 //編集実行
-Route::post('/edit/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_list'])->name('edit'); //【編集完了】クリック時
+// Route::post('/edit/{shop_id}', [App\Http\Controllers\ShopController::class, 'edit_list'])->name('edit'); //【編集完了】クリック時
+Route::post('/edit/{shop_id}', [App\Http\Controllers\ShopController::class, 'val_edit_list'])->name('edit'); //バリデーション付き
 
 //店舗削除
 Route::get('/delete/{shop_id}', [App\Http\Controllers\ShopController::class, 'delete_list'])->name('delete'); //【削除】クリック時
@@ -55,11 +61,11 @@ Route::get('/list_item/{shop_id}', [App\Http\Controllers\ShopController::class, 
 
 
 //商品登録
-// Route::get('/add_item', [App\Http\Controllers\ItemController::class, 'add_item'])->name('add_item'); //【商品登録】クリック時
 Route::get('/add_item/{shop_id}', [App\Http\Controllers\ShopController::class, 'add_item_index'])->name('add_item'); //　【商品登録】クリック時
 
 //商品登録ボタン（処理後はlist_itemへ）
-Route::post('/add_item', [App\Http\Controllers\ItemController::class, 'create']); //【登録】クリック時
+// Route::post('/add_item', [App\Http\Controllers\ItemController::class, 'create']); //【登録】クリック時
+Route::post('/add_item', [App\Http\Controllers\ItemController::class, 'val_create']); //バリデーション付き
 
 //商品削除ボタン（処理後はlist_itemへ）
 Route::get('/delete_item/{item_id}', [App\Http\Controllers\ItemController::class, 'delete_item'])->name('delete_item'); //【削除】クリック時
@@ -68,7 +74,8 @@ Route::get('/delete_item/{item_id}', [App\Http\Controllers\ItemController::class
 Route::get('/edit_item/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item_index'])->name('edit_item'); //【編集】クリック時
 
 //編集実行
-Route::post('/edit_/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item'])->name('edit_'); //【編集完了】クリック時
+// Route::post('/edit_/{item_id}', [App\Http\Controllers\ItemController::class, 'edit_item'])->name('edit_'); //【編集完了】クリック時
+Route::post('/edit_/{item_id}', [App\Http\Controllers\ItemController::class, 'val_edit_item'])->name('edit_'); //バリデーション付き
 
 //在庫移動
 Route::get('/move_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move_item'])->name('move_item');
@@ -89,8 +96,9 @@ Route::get('/delete_memo/{id}', [App\Http\Controllers\PostController::class, 'de
 Route::get('add_room', function () {
     return view('add_room');
 });
-//ルーム作成
-Route::post('/add_room', [App\Http\Controllers\RoomController::class, 'create']); //【作成】クリック時
+//ルーム作成(処理後はlist_roomへ)
+// Route::post('/add_room', [App\Http\Controllers\RoomController::class, 'create']); //【作成】クリック時
+Route::post('/add_room', [App\Http\Controllers\RoomController::class, 'val_create']); //バリデーション付き
 
 //ルーム一覧
 Route::get('/list_room',[App\Http\Controllers\RoomController::class, 'index'])->name('list_room');//【ルーム一覧】クリック時
@@ -108,7 +116,8 @@ Route::get('/delete_room/{id}', [App\Http\Controllers\RoomController::class, 'de
 Route::get('/edit_room/{id}', [App\Http\Controllers\RoomController::class, 'edit_room_index'])->name('edit_room'); //【削除】クリック時
 
 //ルーム編集実行
-Route::post('/edit__/{id}', [App\Http\Controllers\RoomController::class, 'edit_room'])->name('edit__'); //【編集完了】クリック時
+// Route::post('/edit__/{id}', [App\Http\Controllers\RoomController::class, 'edit_room'])->name('edit__'); //【編集完了】クリック時
+Route::post('/edit__/{id}', [App\Http\Controllers\RoomController::class, 'val_edit_room'])->name('edit__'); //【編集完了】クリック時
 
 
 

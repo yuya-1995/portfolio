@@ -6,12 +6,54 @@ use App\Models\Item;
 use App\Models\shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator; //バリデーション
+
 
 class ItemController extends Controller
 {
-    public function create(Request $request)
+    // public function create(Request $request)
+
+    // {
+    //     Item::create([
+    //         //   "shop_name" => $request->shop_name,
+    //         'item_name' => $request->item_name,
+    //         'item_num' => $request->item_num,
+    //         'stock_at' => $request->stock_at,
+    //         'item_price' => $request->item_price,
+    //         'item_loss' => $request->item_loss,
+    //         'user_name' => $request->user_name,
+    //         'shop_id' => $request->shop_id,
+
+    //     ]);
+
+    //     $list = shop::where('shop_id', $request->shop_id)->first();
+    //     // dd($list);データ確認
+    //     $items = Item::where('shop_id',  $request->shop_id)->get();
+
+    //     // return view("/list_item", compact('list','items'));
+    //     return redirect("list_item/{$request->shop_id}");
+    // }
+
+    public function val_create(Request $request)
 
     {
+        $validator = Validator::make($request->all(),
+            [
+                //バリデーションルールを記載（メッセージはvalidation.phpで編集）
+                'item_name' => ['required', 'min:3', 'max:15'],
+                'item_num' => ['required', 'integer'],
+                'item_price' => ['required', 'integer'],
+                'item_loss' => ['required'],
+            ]
+        );
+
+        if ($validator->fails()) {
+
+            return redirect("add_item/{$request->shop_id}")
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         Item::create([
             //   "shop_name" => $request->shop_name,
             'item_name' => $request->item_name,
@@ -55,8 +97,42 @@ class ItemController extends Controller
         // return view("edit_shop",compact('item'));
     }
 
-    public function edit_item(Request $request, $item_id)
+    // public function edit_item(Request $request, $item_id)
+    // {
+    //     $items = Item::where('item_id', $item_id)->first();
+    //     $items->update([
+    //         'item_name' => $request->item_name,
+    //         'item_num' => $request->item_num,
+    //         'item_price' => $request->item_price,
+    //         'item_loss' => $request->item_loss,
+    //         'user_name' => $request->user_name,
+    //         'shop_id' => $request->shop_id,
+    //     ]);
+        
+
+    //     return redirect("list_item/{$request->shop_id}");
+    //     // return view("edit_shop",compact('list')); 
+    // }
+
+    public function val_edit_item(Request $request, $item_id)
     {
+        $validator = Validator::make($request->all(),
+            [
+                //バリデーションルールを記載（メッセージはvalidation.phpで編集）
+                'item_name' => ['required', 'min:3', 'max:15'],
+                'item_num' => ['required', 'integer'],
+                'item_price' => ['required', 'integer'],
+                'item_loss' => ['required'],
+            ]
+        );
+
+        if ($validator->fails()) {
+
+            return redirect("edit_item/{$item_id}")
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $items = Item::where('item_id', $item_id)->first();
         $items->update([
             'item_name' => $request->item_name,
@@ -71,6 +147,7 @@ class ItemController extends Controller
         return redirect("list_item/{$request->shop_id}");
         // return view("edit_shop",compact('list')); 
     }
+
 
     public function move_item($item_id)
     {

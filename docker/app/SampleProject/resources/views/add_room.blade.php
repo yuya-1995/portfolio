@@ -14,7 +14,7 @@
                             <label for="room_name" class="col-md-4 col-form-label text-md-end">{{ __('ルーム名') }}</label>
 
                             <div class="col-md-6">
-                                <input id="room_name" type="text" class="form-control @error('name') is-invalid @enderror" name="room_name" value="{{ old('room_name') }}" required autocomplete="room_name" autofocus>
+                                <input id="room_name" type="text" class="form-control @error('room_name') is-invalid @enderror" name="room_name" value="{{ old('room_name') }}" autocomplete="room_name" autofocus>
 
                                 @error('room_name')
                                     <span class="invalid-feedback" role="alert">
@@ -28,8 +28,8 @@
                             <label for="room_intro" class="col-md-4 col-form-label text-md-end">{{ __('ルーム紹介文') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="room_intro" class="form-control" name="room_intro"
-                                placeholder="例）今日飲みに行ける人集合ー！" value="{{ old('post') }}" required autocomplete="room_intro"
+                                <textarea id="room_intro" class="form-control @error('room_intro') is-invalid @enderror" name="room_intro"
+                                placeholder="例）今日飲みに行ける人集合ー！" value="{{ old('post') }}" autocomplete="room_intro"
                                 ></textarea>
 
                                 @error('room_intro')
@@ -44,7 +44,7 @@
                             <label for="created_name" class="col-md-4 col-form-label text-md-end">{{ __('作成者') }}</label>
 
                             <div class="col-md-6">
-                                <input id="created_name" type="text" class="form-control @error('name') is-invalid @enderror" name="created_name" value="<?php $user = Auth::user(); ?>{{ $user->name }}" required autocomplete="created_name" autofocus readonly>
+                                <input id="created_name" type="text" class="form-control @error('created_name') is-invalid @enderror" name="created_name" value="<?php $user = Auth::user(); ?>{{ $user->name }}" required autocomplete="created_name" autofocus readonly>
 
                                 @error('created_name')
                                     <span class="invalid-feedback" role="alert">

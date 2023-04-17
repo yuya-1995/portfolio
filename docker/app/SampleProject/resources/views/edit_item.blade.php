@@ -13,15 +13,15 @@
 
                         <input id="shop_id" type="hidden"
                         class="form-control @error('name') is-invalid @enderror" name="shop_id"
-                        value="{{ $list->shop_id }}" required autocomplete="shop_id" autofocus>
+                        value="{{ $list->shop_id }}" autocomplete="shop_id" autofocus>
 
                         <div class="row  mb-3">
                             <label for="item_name" class="col-md-4 col-form-label text-md-end">{{ __('商品名') }}</label>
 
                             <div class="col-md-6">
                                 <input id="item_name" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="item_name"
-                                    value="{{ $items->item_name }}" required autocomplete="item_name" autofocus>
+                                    class="form-control @error('item_name') is-invalid @enderror" name="item_name"
+                                    value="{{ $items->item_name }}" autocomplete="item_name" autofocus>
 
                                 @error('item_name')
                                     <span class="invalid-feedback" role="alert">
@@ -36,8 +36,8 @@
 
                             <div class="col-md-6">
                                 <input id="item_num" type="number"
-                                    class="form-control @error('name') is-invalid @enderror" name="item_num"
-                                    value="{{ $items->item_num }}" required autocomplete="item_num" autofocus>
+                                    class="form-control @error('item_num') is-invalid @enderror" name="item_num"
+                                    value="{{ $items->item_num }}" autocomplete="item_num" autofocus>
 
                                 @error('item_num')
                                     <span class="invalid-feedback" role="alert">
@@ -52,8 +52,8 @@
 
                             <div class="col-md-6">
                                 <input id="item_price" type="number"
-                                    class="form-control @error('name') is-invalid @enderror" name="item_price"
-                                    value="{{ $items->item_price }}" required autocomplete="item_price" autofocus>
+                                    class="form-control @error('item_price') is-invalid @enderror" name="item_price"
+                                    value="{{ $items->item_price }}" autocomplete="item_price" autofocus>
 
                                 @error('item_price')
                                     <span class="invalid-feedback" role="alert">
@@ -68,8 +68,8 @@
 
                             <div class="col-md-6">
                                 <input id="item_loss" type="date"
-                                    class="form-control @error('name') is-invalid @enderror" name="item_loss"
-                                    value="" required autocomplete="item_loss" autofocus>
+                                    class="form-control @error('item_loss') is-invalid @enderror" name="item_loss"
+                                    value="" autocomplete="item_loss" autofocus>
 
                                 @error('item_loss')
                                     <span class="invalid-feedback" role="alert">
@@ -85,7 +85,7 @@
                             <div class="col-md-6">
                                 <input id="user_name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" name="user_name"
-                                    value="<?php $user = Auth::user(); ?>{{ $user->name }}" required autocomplete="user_name" readonly>
+                                    value="<?php $user = Auth::user(); ?>{{ $user->name }}" autocomplete="user_name" readonly>
 
                                 @error('user_name')
                                     <span class="invalid-feedback" role="alert">

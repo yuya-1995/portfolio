@@ -61,7 +61,7 @@ return [
     'image'                => ':attributeには画像ファイルを指定してください。',
     'in'                   => '選択された:attributeは正しくありません。',
     'in_array'             => ':attributeには:otherの値を指定してください。',
-    'integer'              => ':attributeは整数で指定してください。',
+    'integer'              => ':attributeは数字で入力してください。',
     'ip'                   => ':attributeには、有効なIPアドレスを指定してください。',
     'ipv4'                 => ':attributeには、有効なIPv4アドレスを指定してください。',
     'ipv6'                 => ':attributeには、有効なIPv6アドレスを指定してください。',
@@ -99,7 +99,7 @@ return [
     'password'             => '正しいパスワードを指定してください。',
     'present'              => ':attributeが存在していません。',
     'regex'                => ':attributeに正しい形式を指定してください。',
-    'required'             => ':attributeは必ず指定してください。',
+    'required'             => ':attributeは必須項目です。',
     'required_if'          => ':otherが:valueの場合、:attributeも指定してください。',
     'required_unless'      => ':otherが:valuesでない場合、:attributeを指定してください。',
     'required_with'        => ':valuesを指定する場合は、:attributeも指定してください。',
@@ -137,9 +137,13 @@ return [
     */
 
     'custom' => [
-        '属性名' => [
-            'ルール名' => 'カスタムメッセージ',
+        'name' => [
+            'required' => ':attributeを入力してください。',
+            'string'  => ':attributeは、:max文字以下で指定してください。',
+
+
         ],
+
     ],
 
     /*
@@ -153,6 +157,22 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => '会社名または氏名',
+        'max' => '15',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+        'shop_name' => '店舗名',
+        'shop_address' => '店舗住所',
+        'at1st' => '【倉庫室場所】',
+        'at2nd' => '【中継】',
+        'at3rd' => '【店舗住所】',
+        'item_name' => '商品名',
+        'item_num' => '商品数（入り数）',
+        'item_price' => '販売単価',
+        'item_loss' => '賞味期限',
+        'room_name' => 'ルーム名',
+        'room_intro' => 'ルーム紹介分',
+    ],
 
 ];

@@ -14,7 +14,7 @@
 
                             <div class="col-md-6">
                                 <input id="shop_name" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="shop_name"
+                                    class="form-control @error('shop_name') is-invalid @enderror" name="shop_name"
                                     value="{{ $list->shop_name }}" autocomplete="shop_name" autofocus>
 
                                 @error('shop_name')
@@ -31,8 +31,8 @@
 
                             <div class="col-md-6">
                                 <input id="shop_address" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="shop_address"
-                                    value="{{ $list->shop_address }}" required autocomplete="shop_address" autofocus>
+                                    class="form-control @error('shop_address') is-invalid @enderror" name="shop_address"
+                                    value="{{ $list->shop_address }}"  autocomplete="shop_address" autofocus>
 
                                 @error('shop_address')
                                     <span class="invalid-feedback" role="alert">
@@ -47,8 +47,8 @@
 
                             <div class="col-md-6">
                                 <input id="at1st" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="at1st"
-                                    value="{{ $list->at1st }}" required autocomplete="at1st" autofocus>
+                                    class="form-control @error('at1st') is-invalid @enderror" name="at1st"
+                                    value="{{ $list->at1st }}"  autocomplete="at1st" autofocus>
 
                                 @error('at1st')
                                     <span class="invalid-feedback" role="alert">
@@ -63,8 +63,8 @@
 
                             <div class="col-md-6">
                                 <input id="at2nd" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="at2nd"
-                                    value="{{ $list->at2nd }}" required autocomplete="at2nd" autofocus>
+                                    class="form-control @error('at2nd') is-invalid @enderror" name="at2nd"
+                                    value="{{ $list->at2nd }}"  autocomplete="at2nd" autofocus>
 
                                 @error('at2nd')
                                     <span class="invalid-feedback" role="alert">
@@ -79,8 +79,8 @@
 
                             <div class="col-md-6">
                                 <input id="at3rd" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="at3rd"
-                                    value="{{ $list->at3rd }}" required autocomplete="at3rd" autofocus>
+                                    class="form-control @error('at3rd') is-invalid @enderror" name="at3rd"
+                                    value="{{ $list->at3rd }}"  autocomplete="at3rd" autofocus>
 
                                 @error('at3rd')
                                     <span class="invalid-feedback" role="alert">
@@ -95,8 +95,8 @@
 
                             <div class="col-md-6">
                                 <input id="loss_alert" max="30" min="0" type="number"
-                                    class="form-control @error('name') is-invalid @enderror" name="loss_alert"
-                                    value="{{ $list->loss_alert }}" required autocomplete="loss_alert" autofocus>
+                                    class="form-control @error('loss_alert') is-invalid @enderror" name="loss_alert"
+                                    value="{{ $list->loss_alert }}"  autocomplete="loss_alert" autofocus>
 
                                 @error('loss_alert')
                                     <span class="invalid-feedback" role="alert">
