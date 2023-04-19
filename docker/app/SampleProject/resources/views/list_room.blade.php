@@ -14,8 +14,8 @@
                     <div class="card-body text-dark">
                         <p class="card-text">{!! nl2br(htmlspecialchars($list->room_intro)) !!}</p>
                         <p class="card-text">作成者：{{ $list->created_name }}</p>
-                        
 
+                        {{-- nl2brは表示のみの用途に使う（編集では<br>が出現してしまう） --}}
 
                         <div class="list_item text-center">
                             <a href="{{route('room', [$list->id])}}"><button class="btn btn-outline-secondary mt-3" type="button"

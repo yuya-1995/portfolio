@@ -66,10 +66,15 @@
                         <div class="row  mb-3">
                             <label for="item_loss" class="col-md-4 col-form-label text-md-end">{{ __('賞味期限') }}</label>
 
+                            {{-- 日付の取得 --}}
+                            <?php
+                            $carbon = new Carbon($items->item_loss);
+                            ?>
+
                             <div class="col-md-6">
                                 <input id="item_loss" type="date"
                                     class="form-control @error('item_loss') is-invalid @enderror" name="item_loss"
-                                    value="" autocomplete="item_loss" autofocus>
+                                    value="<?php echo date('Y-m-j', strtotime($carbon));?>" autocomplete="item_loss" autofocus>
 
                                 @error('item_loss')
                                     <span class="invalid-feedback" role="alert">

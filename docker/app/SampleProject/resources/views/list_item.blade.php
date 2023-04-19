@@ -54,9 +54,9 @@
                                     <td>{{ $item->item_num }}</td>
                                     <td>{{ $item->item_price }}</td>
                                     @if ($alert <= $list->loss_alert)
-                                        <td class="text-danger">{{ $item->item_loss }}</td>
+                                        <td class="text-danger"><?php echo date('Y年m月j日', strtotime($carbon2));?></td>
                                     @else
-                                        <td>{{ $item->item_loss }}</td>
+                                        <td><?php echo date('Y年m月j日', strtotime($carbon2));?></td>
                                     @endif
                                     <td>{{ $item->user_name }}</td>
                                     <td>{{ $item->updated_at }}</td>
@@ -129,9 +129,9 @@
                                     <td>{{ $item->item_num }}</td>
                                     <td>{{ $item->item_price }}</td>
                                     @if ($alert <= $list->loss_alert)
-                                        <td class="text-danger">{{ $item->item_loss }}</td>
+                                        <td class="text-danger"><?php echo date('Y年m月j日', strtotime($carbon2));?></td>
                                     @else
-                                        <td>{{ $item->item_loss }}</td>
+                                        <td><?php echo date('Y年m月j日', strtotime($carbon2));?></td>
                                     @endif
                                     <td>{{ $item->user_name }}</td>
                                     <td>{{ $item->updated_at }}</td>
@@ -201,9 +201,9 @@
                                     <td>{{ $item->item_num }}</td>
                                     <td>{{ $item->item_price }}</td>
                                     @if ($alert <= $list->loss_alert)
-                                        <td class="text-danger">{{ $item->item_loss }}</td>
+                                        <td class="text-danger"><?php echo date('Y年m月j日', strtotime($carbon2));?></td>
                                     @else
-                                        <td>{{ $item->item_loss }}</td>
+                                        <td><?php echo date('Y年m月j日', strtotime($carbon2));?></td>
                                     @endif
                                     <td>{{ $item->user_name }}</td>
                                     <td>{{ $item->updated_at }}</td>

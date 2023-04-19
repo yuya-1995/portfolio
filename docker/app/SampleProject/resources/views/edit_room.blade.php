@@ -30,7 +30,7 @@
                             <div class="col-md-6">
                                 <textarea id="room_intro" class="form-control @error('room_intro') is-invalid @enderror" name="room_intro"
                                 placeholder="例）今日飲みに行ける人集合ー！" value="{{ old('room_intro') }}" autocomplete="room_intro"
-                                >{!! nl2br(htmlspecialchars($room->room_intro)) !!}</textarea>
+                                >{!! htmlspecialchars($room->room_intro) !!}</textarea>
 
                                 @error('room_intro')
                                     <span class="invalid-feedback" role="alert">

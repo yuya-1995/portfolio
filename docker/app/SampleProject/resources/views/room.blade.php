@@ -21,18 +21,20 @@
                             <div class="message-icon rounded-circle bg-secondary text-white fs-3">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <p class="message-text text-start p-3 me-2 mb-0 bg-info rounded-pill">
+                            <p class="message-text text-start p-3 me-1 mb-0 bg-info rounded-pill">
                                 {!! nl2br(htmlspecialchars($comment->comment)) !!}
                             </p>
                             <div class="fs-8 me-1 align-self-end">{{ $comment->created_at }}</div>
                         </div>
                         @else
-                        <div class="message d-flex flex-row align-items-start mb-3">
-                            <div class="message-icon rounded-circle bg-secondary text-white fs-3">
-                                <i class="fas fa-user"></i>
+                        <div class="message d-flex flex-row align-items-start mb-1">
+                            <div class="message-icon">
+                                <i class="fs-8">{{ $comment->user_name }}:</i>
                             </div>
-                            <p class="message-text text-start p-3 ms-2 mb-0 bg-warning rounded-pill">
-                                {{ $comment->user_name }}:{{ $comment->comment }}
+                        </div>
+                        <div class="message d-flex flex-row align-items-start mb-3">
+                            <p class="message-text text-start p-3 ms-1 mb-0 bg-warning rounded-pill">
+                                {!! nl2br(htmlspecialchars($comment->comment)) !!}
                             </p>
                             <div class="fs-8 ms-1 align-self-end">{{ $comment->created_at }}</div>
                         </div>
