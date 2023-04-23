@@ -52,8 +52,9 @@ class ShopController extends Controller
         ]);
 
         $shop_list = shop::all();
+        $item_list = Item::all();
 
-        return view("list_shop", compact('shop_list'));
+        return view("list_shop", compact('shop_list','item_list'));
     }
     //下記、
     // public function create(Request $request)
@@ -83,7 +84,9 @@ class ShopController extends Controller
     public function index()
     {
         $shop_list = shop::all();
-        return view("list_shop", compact('shop_list'));
+        $item_list = Item::all();
+
+        return view("list_shop", compact('shop_list','item_list'));
     }
 
     //店舗編集
