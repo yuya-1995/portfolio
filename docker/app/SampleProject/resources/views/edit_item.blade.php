@@ -74,7 +74,7 @@
                             <div class="col-md-6">
                                 <input id="item_loss" type="date"
                                     class="form-control @error('item_loss') is-invalid @enderror" name="item_loss"
-                                    value="<?php echo date('Y-m-j', strtotime($carbon));?>" autocomplete="item_loss" autofocus>
+                                    value="<?php echo date('Y-m-d', strtotime($carbon));?>" autocomplete="item_loss" autofocus>
 
                                 @error('item_loss')
                                     <span class="invalid-feedback" role="alert">

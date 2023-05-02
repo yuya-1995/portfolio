@@ -140,8 +140,6 @@ return [
         'name' => [
             'required' => ':attributeを入力してください。',
             'string'  => ':attributeは、:max文字以下で指定してください。',
-
-
         ],
 
     ],
@@ -173,6 +171,7 @@ return [
         'item_loss' => '賞味期限',
         'room_name' => 'ルーム名',
         'room_intro' => 'ルーム紹介分',
+        'skill_name' => 'スキル名'
     ],
 
 ];

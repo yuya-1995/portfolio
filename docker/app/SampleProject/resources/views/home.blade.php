@@ -31,6 +31,22 @@
                                 id="button-addon1">ルーム作成</button></a>
                     </div>
                 </div>
+                
+                <div class="row justify-content-center mt-5">
+                    <div class="select justify-content-center">
+                        <p class="fs-3 text-center">skill</p>
+                        <div class="text-center">
+                            <a href="list_worker"><button class="btn btn-outline-secondary " type="button"
+                                    id="button-addon1">社員一覧</button></a>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="add_skill"><button class="btn btn-outline-secondary " type="button"
+                                    id="button-addon1">スキル登録</button></a>
+                        </div>
+                        
+                    </div>
+
+
                 {{-- チャット機能（時間に余裕ができた場合） --}}
                 <div class="transmission mt-5">
                     <p class="fs-3 text-center">

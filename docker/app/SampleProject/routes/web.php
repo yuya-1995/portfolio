@@ -119,12 +119,20 @@ Route::get('/edit_room/{id}', [App\Http\Controllers\RoomController::class, 'edit
 // Route::post('/edit__/{id}', [App\Http\Controllers\RoomController::class, 'edit_room'])->name('edit__'); //【編集完了】クリック時
 Route::post('/edit__/{id}', [App\Http\Controllers\RoomController::class, 'val_edit_room'])->name('edit__'); //【編集完了】クリック時
 
+//スキル登録
+Route::get('add_skill', function () {
+    return view('add_skill');
+});
+//スキル登録(処理後はlist_skillへ)
+Route::post('/add_skill', [App\Http\Controllers\SkillController::class, 'val_create']); //バリデーション付き
 
+//従業員一覧
+Route::get('/list_worker',[App\Http\Controllers\SkillController::class, 'index_user'])->name('list_worker');//【社員一覧】クリック時
 
+//スキル付与
+Route::get('/give_skill/{user_id}/{skill_id}',[App\Http\Controllers\SkillController::class, 'give_skill'])->name('give_skill');//
 
-
-
-
-
+//スキル削除
+Route::get('/delete_skill/{user_id}/{skill_id}',[App\Http\Controllers\SkillController::class, 'delete_skill'])->name('delete_skill');//
 
 

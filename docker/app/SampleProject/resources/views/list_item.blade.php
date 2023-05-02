@@ -63,11 +63,6 @@
                                     @if (Auth::user()->role == 2)
                                         <td class="text-center">
                                             <div class="edit_shop text-center">
-                                                {{-- 旧案 --}}
-                                                {{-- <a href="{{ route('move_item', [$item->item_id]) }}"><button
-                                                        class="btn btn-outline-secondary" type="button"
-                                                        id="">移動</button></a> --}}
-                                                {{-- スタイリッシュ案 --}}
                                                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">移動</button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="{{ route('move2_item', [$item->item_id]) }}">{{ $list->at2nd }}</a></li>
