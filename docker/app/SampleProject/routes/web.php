@@ -135,4 +135,14 @@ Route::get('/give_skill/{user_id}/{skill_id}',[App\Http\Controllers\SkillControl
 //スキル削除
 Route::get('/delete_skill/{user_id}/{skill_id}',[App\Http\Controllers\SkillController::class, 'delete_skill'])->name('delete_skill');//
 
+//役職登録
+Route::get('/add_position', [App\Http\Controllers\PositionController::class, 'index'])->name('add_position'); //　【商品登録】クリック時
 
+//役職登録処理後は社員一覧へ
+Route::post('/do_add_position', [App\Http\Controllers\PositionController::class, 'add'])->name('do_add_position'); //　【商品登録】クリック時
+
+//同期通信チャット
+Route::post('/add', [App\Http\Controllers\HomeController::class, 'add'])->name('add');
+
+//非同期通信チャット
+Route::get('/result/ajax', [App\Http\Controllers\HomeController::class, 'getData']);

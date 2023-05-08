@@ -40,6 +40,10 @@
                                     id="button-addon1">社員一覧</button></a>
                         </div>
                         <div class="text-center mt-3">
+                            <a href="add_position"><button class="btn btn-outline-secondary " type="button"
+                                    id="button-addon1">役職登録</button></a>
+                        </div>
+                        <div class="text-center mt-3">
                             <a href="add_skill"><button class="btn btn-outline-secondary " type="button"
                                     id="button-addon1">スキル登録</button></a>
                         </div>
@@ -73,6 +77,8 @@
                             </div>
                         </div>
 
+                    
+
                         {{-- ポスト部分 --}}
                         <form class="row row-cols-auto align-items-center mt-3" method="POST" action="/post">
                             @csrf
@@ -89,10 +95,36 @@
                                 <button class="btn btn-outline-secondary" type="submit" id="button-addon1">メモする</button>
                             </div>
                         </form>
-
                     </div>
 
+                        <div class="chat-container row justify-content-center">
+                            <div class="chat-area">
+                                <div class="card">
+                                    <div class="card-header">Comment</div>
+                                    <div class="card-body chat-card">
+                                        {{-- @foreach ($chats as $item)
+                                        @include('components.comment', ['item' => $item])
+                                        @endforeach --}}
+                                        {{-- 下記、非同期通信 --}}
+                                        <div id="comment-data"></div> 
+                                    </div>
+                                </div>
+                        
+
+                        <div class="comment-container row justify-content-center">
+                            <div class="input-group comment-area">
+                                <textarea class="form-control" id="comment2" name="comment" placeholder="input massage" aria-label="With textarea"></textarea>
+                                <button id="ajax-btn" type="input-group-prepend button" class="btn btn-outline-primary comment-btn">Submit</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+</div>
                 </div>
             </div>
         </div>
     @endsection
+    @section('js')
+<script src="{{ asset('js/comment.js') }}"></script>
+@endsection

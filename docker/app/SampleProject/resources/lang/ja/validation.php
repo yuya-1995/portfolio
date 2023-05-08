@@ -171,7 +171,9 @@ return [
         'item_loss' => '賞味期限',
         'room_name' => 'ルーム名',
         'room_intro' => 'ルーム紹介分',
-        'skill_name' => 'スキル名'
+        'skill_name' => 'スキル名',
+        'position_name' => '役職名'
+        
     ],
 
 ];

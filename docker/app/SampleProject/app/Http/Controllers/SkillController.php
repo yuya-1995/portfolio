@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Skill;
 use App\Models\UserSkill;
 use App\Models\User;
+use App\Models\position;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator; //バリデーション
 
@@ -38,10 +39,9 @@ class SkillController extends Controller
 
     public function index_user()
     {
-        $user = User::where('role', 2)->get();
+        $user = User::with(['skills', 'position'])->where('role', 2)->get();
         $skill = Skill::all();
         $have = User::with('skills')->get();
-        // dd($have[0]['skills'][0]['name']);
         
         return view("list_worker", compact('user','skill','have'));
         
@@ -50,7 +50,7 @@ class SkillController extends Controller
     public function give_skill($user_id,$skill_id)
     {
         $user = User::find($user_id);
-        $user->skills()->attach($skill_id);
+        $user->skills()->syncWithoutDetaching($skill_id);
         return redirect("list_worker");
         
     }
@@ -60,7 +60,6 @@ class SkillController extends Controller
         $user = User::find($user_id);
         $user->skills()->detach($skill_id);
         return redirect("list_worker");
-        
     }
 
 }

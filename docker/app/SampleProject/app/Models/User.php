@@ -29,6 +29,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Skill::class);
     }
 
+    public function position()
+    {
+        return $this->hasOne(position::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

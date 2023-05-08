@@ -5,3 +5,5 @@ function delete_alert(e){
     }
     document.deleteform.submit();
  };
+
+ 
