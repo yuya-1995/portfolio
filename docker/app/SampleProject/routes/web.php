@@ -89,6 +89,9 @@ Route::get('/move2_item/{item_id}', [App\Http\Controllers\ItemController::class,
 Route::get('/move3_item/{item_id}', [App\Http\Controllers\ItemController::class, 'move3_item'])->name('move3_item');
 
 //memo関連
+Route::post('/post', [App\Http\Controllers\PostController::class, 'post'])->name('post'); //非同期処理
+// Route::get('/memo_result/ajax', [App\Http\Controllers\PostController::class, 'getData']);
+
 Route::post('/post', [App\Http\Controllers\PostController::class, 'post']);
 Route::get('/delete_memo/{id}', [App\Http\Controllers\PostController::class, 'delete'])->name('delete_memo');
 
@@ -127,7 +130,8 @@ Route::get('add_skill', function () {
 Route::post('/add_skill', [App\Http\Controllers\SkillController::class, 'val_create']); //バリデーション付き
 
 //従業員一覧
-Route::get('/list_worker',[App\Http\Controllers\SkillController::class, 'index_user'])->name('list_worker');//【社員一覧】クリック時
+// Route::get('/list_worker',[App\Http\Controllers\SkillController::class, 'index_user'])->name('list_worker');//【社員一覧】クリック時
+Route::get('/list_worker',[App\Http\Controllers\TaskController::class, 'index_user'])->name('list_worker');//【社員一覧】クリック時
 
 //スキル付与
 Route::get('/give_skill/{user_id}/{skill_id}',[App\Http\Controllers\SkillController::class, 'give_skill'])->name('give_skill');//

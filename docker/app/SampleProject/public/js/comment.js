@@ -2,7 +2,9 @@ $(function () {
     get_data();
 });
 
+// 表示
 function get_data() {
+
     $.ajax({
         url: "result/ajax/",
         dataType: "json",
@@ -12,9 +14,6 @@ function get_data() {
                 .remove();
             // console.log(data.comments);
             for (var i = 0; i < data.comments.length; i++) {
-                //     console.log(data.comments[i].name);
-                //     console.log(data.comments[i].comment);
-
                 var html = `
                     <div class="media comment-visible">
                         <div class="media-body comment-body">
@@ -35,28 +34,33 @@ function get_data() {
         }
     });
 
-    setTimeout("get_data()", 5000);
+    setTimeout("get_data()", 1000);
 }
 
-$( function() {
+// 追加
+$(function () {
+    // text = replace(/[\n\r]/g, "</br>")
     $('#ajax-btn').click(
-    function() {
+        function () {
 
-        var val = $('#comment2').val();
 
-        $.ajax({
-            url: 'add/',
-            type:'POST',
-            dataType: 'json',
-            data : {comment : val },
-            timeout:3000,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-               },
-        }).done(function(data) {
-            console.log(data);
-        }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
-                         alert("error");
-        })
-    });
-} );
+            var val = $('#comment2').val().replace(/[\n\r]/g, "<br>");
+
+            $.ajax({
+                url: 'add/',
+                type: 'POST',
+                dataType: 'json',
+                data: { comment : val },
+                timeout: 3000,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                },
+            }).then(function (data) {
+                val = $('#comment2').val("");
+                console.log(data);
+
+            }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("error");
+            })
+        });
+});

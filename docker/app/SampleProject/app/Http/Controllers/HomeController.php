@@ -33,6 +33,17 @@ class HomeController extends Controller
         $chats = Comment::get();
         return view('home', compact('user', 'comments', 'chats'));
     }
+    public function getData()
+    {
+        $comments = Comment::orderBy('created_at', 'desc')->get();
+        $json = ["comments" => $comments];
+        return response()->json($json);
+    }
+
+    public function temp(Request $request)
+    {
+        return response()->json($request);
+    }
 
     public function add(Request $request)
     {
@@ -45,16 +56,5 @@ class HomeController extends Controller
         ]);
         return response()->json($comment);
         // return redirect('home');
-    }
-    public function getData()
-    {
-        $comments = Comment::orderBy('created_at', 'asc')->get();
-        $json = ["comments" => $comments];
-        return response()->json($json);
-    }
-
-    public function temp(Request $request)
-    {
-        return response()->json($request);
     }
 }

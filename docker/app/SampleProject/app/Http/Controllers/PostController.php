@@ -9,15 +9,23 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+    // public function getData()
+    // {
+    //     $comments = Post::orderBy('created_at', 'desc')->get();
+    //     $json = ["comments" => $comments];
+    //     return response()->json($json);
+    // }
     public function post(Request $request)
     {
-        Post::create([
+        $add_post = Post::create([
             'user_name' => $request->user_name,
             'comment' => $request->comment,
             'user_id' => $request->user_id,
         ]);
 
         return redirect('home');
+        // return response()->json($add_post);
+
     }
 
     public function delete($id)

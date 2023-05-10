@@ -27,12 +27,11 @@ class PositionController extends Controller
 
         ]);
 
-        $user = User::where('role', 2)->get();
+        $user = User::with(['skills', 'position'])->where('role', 2)->get();
         $skill = Skill::all();
         $have = User::with('skills')->get();
-        $position = User::with('position')->get();
         
-        return view("list_worker", compact('user','skill','have','position'));
+        return view("list_worker", compact('user','skill','have'));
     }
 
 

@@ -39,9 +39,10 @@ class SkillController extends Controller
 
     public function index_user()
     {
-        $user = User::with(['skills', 'position'])->where('role', 2)->get();
         $skill = Skill::all();
+        $user = User::with(['skills', 'position'])->where('role', 2)->get();        
         $have = User::with('skills')->get();
+
         
         return view("list_worker", compact('user','skill','have'));
         

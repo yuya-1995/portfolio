@@ -8,7 +8,7 @@
         <div class="row align-items-center mt-5">
             {{-- 店舗情報カード(始) --}}
             @foreach ($user as $user_list)
-                <div class="col-4 d-flex align-items-center justify-content-center">
+                <div class="col-4 d-flex align-items-center justify-content-center mt-3">
                     <div class="card" style="width: 18rem;">
                         {{-- 画像投稿チャレンジ --}}
                         {{-- <img src="..." class="card-img-top" alt="..."> --}}
@@ -18,23 +18,23 @@
                         <div class="user_posion">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    役職
+                                    【役職】
                                 </li>
                                 <li class="list-group-item">
                                     {{-- hasOneの時の出力↓ --}}
-                                    {{ isset($user_list->position->name) ? $user_list->position->name : '役職なし'}}
+                                    {{-- {{ isset($user_list->position->name) ? $user_list->position->name : '役職なし'}} --}}
 
                                     {{-- hasManyの時の出力↓ --}}
-                                    {{-- @if (isset($user_list->position))
+                                    @if (isset($user_list->position))
                                         @foreach ($user_list->position as $user_position)
                                             {{ $user_position['name'] }}
                                         @endforeach
-                                    @endif --}}
+                                    @endif
                                 </li>
                             </ul>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">保有スキル</li>
+                            <li class="list-group-item">【保有スキル】</li>
                             {{-- スキル開始 --}}
                             @if (isset($user_list->skills))
                                 @foreach ($user_list->skills as $users_skill)
