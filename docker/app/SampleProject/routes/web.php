@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ChatGptController;
+use GuzzleHttp\Client;
 
 
 /*
@@ -150,3 +152,8 @@ Route::post('/add', [App\Http\Controllers\HomeController::class, 'add'])->name('
 
 //非同期通信チャット
 Route::get('/result/ajax', [App\Http\Controllers\HomeController::class, 'getData']);
+
+//chat_gpt_room
+Route::get('/ChatGptSearch', [App\Http\Controllers\ChatGptSearchController::class, 'index']);
+Route::post('/ChatGptSearch_post', [App\Http\Controllers\ChatGptSearchController::class, 'chat']);
+

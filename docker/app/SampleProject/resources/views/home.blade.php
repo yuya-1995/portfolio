@@ -5,7 +5,7 @@
         <img src="/img/cardboard_box-1.png" class="rounded mx-auto d-block md-5">
 
         {{-- 店舗メニュー --}}
-        <div class="row justify-content-center">
+        
             <div class="select justify-content-center">
                 <p class="fs-3 text-center">shop</p>
                 <div class="text-center">
@@ -26,9 +26,13 @@
                         <a href="list_room"><button class="btn btn-outline-secondary " type="button"
                                 id="button-addon1">ルーム一覧</button></a>
                     </div>
-                    <div class="add_shop text-center">
+                    <div class="text-center">
                         <a href="add_room"><button class="btn btn-outline-secondary mt-3" type="button"
                                 id="button-addon1">ルーム作成</button></a>
+                    </div>
+                    <div class="text-center">
+                        <a href="ChatGptSearch"><button class="btn btn-outline-secondary mt-3" type="button"
+                                id="button-addon1">ChatGPT_API</button></a>
                     </div>
                 </div>
                 
